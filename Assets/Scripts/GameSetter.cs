@@ -13,6 +13,8 @@ public class GameSetter : MonoBehaviour
     {
 		/*
 		 *	Set 함수들 (ex_ 카드 나눠주기)
+		 * MixCards(); // 카드 섞기
+		 * SetPlayer(); // 인원수 확인 및 인원수대로 카드 배분
 		 * 
 		 * */
 
@@ -39,6 +41,11 @@ public class GameSetter : MonoBehaviour
 			//카드 믹스하는 내용
 		}
 
+		void SetPlayer()
+    {
+		// 인원수 확인 및 인원수대로 list 만들어서 카드 배분
+		// if 딱 안 떨어질 경우 남는 카드 빼기
+    }
 
 	#endregion
 }

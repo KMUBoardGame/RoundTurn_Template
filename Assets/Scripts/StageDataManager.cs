@@ -26,7 +26,7 @@ public class StageDataManager : MonoBehaviour
 
 	#region Step Data
 
-		int currentStep;
+	int currentStep;
 		public int CurrentStep
 		{
 			get { return currentStep; }

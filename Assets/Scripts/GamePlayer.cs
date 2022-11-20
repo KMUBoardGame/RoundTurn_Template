@@ -82,12 +82,39 @@ public class GamePlayer : MonoBehaviour
 			if (hit.collider != null && hit.transform.tag == tagName)
 			{
 				//태그 이름을 가진 오브젝트가 클릭됐을 때 실행할 내용
+				// 카드 뒤집기
 			}
 		}
 	}
 
 	#endregion
 
+	#region Step 2
+
+	[Header("Step2 Materials")]
+	[SerializeField]
+	GameObject Dice_;
+
+	void ClickRing(string tagName) // 종 치면
+	{
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		origin = ray.origin;
+		dir = ray.direction;
+
+		RaycastHit2D hit = Physics2D.Raycast(origin, dir);
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			if (hit.collider != null && hit.transform.tag == tagName)
+			{
+				//태그 이름을 가진 오브젝트가 클릭됐을 때 실행할 내용
+				// 같은 종류 카드 확인 --> 합이 5인지 확인
+				// 확인 후 승패 판정
+			}
+		}
+	}
+
+	#endregion
 
 
 	/// <summary>
