@@ -82,10 +82,14 @@ public class GamePlayer : MonoBehaviour
 			if (hit.collider != null && hit.transform.tag == tagName)
 			{
 				//태그 이름을 가진 오브젝트가 클릭됐을 때 실행할 내용
-				// 카드 뒤집기
+				// 카드 뒤집기(HandCards --> UpperCards, HandCards에서 낸 카드는 삭제)
+
+				// if) HandsCards 리스트에 더이상 카드 없으면 대기(카드 낼 수 없음)
 			}
 		}
 	}
+
+	
 
 	#endregion
 
@@ -113,6 +117,37 @@ public class GamePlayer : MonoBehaviour
 			}
 		}
 	}
+
+	#endregion
+
+	#region Step 3
+
+	[Header("Step2 Materials")]
+	[SerializeField]
+	GameObject Dice1_;
+
+	void Click_(string tagName)
+	{
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		origin = ray.origin;
+		dir = ray.direction;
+
+		RaycastHit2D hit = Physics2D.Raycast(origin, dir);
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			if (hit.collider != null && hit.transform.tag == tagName)
+			{
+				//태그 이름을 가진 오브젝트가 클릭됐을 때 실행할 내용
+			}
+		}
+	}
+
+	void PlayerCheck() // 추가 함수
+    {
+		// 카드 개수 0인 사람 탈락 --> 생존자 1명이면 finisher로
+		// 아니면 다시 step1로 
+    }
 
 	#endregion
 
