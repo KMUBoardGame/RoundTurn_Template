@@ -1061,6 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd2e1f247a94274ab66981f809e50da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerNum: 2
 --- !u!4 &1302104743
 Transform:
   m_ObjectHideFlags: 0
@@ -1308,3 +1309,5 @@ MonoBehaviour:
   - {fileID: 0}
   GameFinisher: {fileID: 1298446973}
   Dice: {fileID: 366885893}
+  Dice_: {fileID: 0}
+  Dice1_: {fileID: 0}
