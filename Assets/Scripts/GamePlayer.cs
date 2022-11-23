@@ -126,22 +126,6 @@ public class GamePlayer : MonoBehaviour
 	[SerializeField]
 	GameObject Dice1_;
 
-	void Click_(string tagName)
-	{
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		origin = ray.origin;
-		dir = ray.direction;
-
-		RaycastHit2D hit = Physics2D.Raycast(origin, dir);
-
-		if (Input.GetMouseButtonDown(0))
-		{
-			if (hit.collider != null && hit.transform.tag == tagName)
-			{
-				//태그 이름을 가진 오브젝트가 클릭됐을 때 실행할 내용
-			}
-		}
-	}
 
 	void PlayerCheck() // 추가 함수
     {

@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class StageDataManager : MonoBehaviour
 {
-	List<int> peaches = new List<int>();
-	List<int> bananas = new List<int>();
-	List<int> plums = new List<int>();
-	List<int> limes = new List<int>();
-	List<List<int>> cards = new List<List<int>>();
+	// 복숭아, 바나나, 자두, 라임 등 카드 종류 이름
+	List<string> cardName = new List<string>() { "Peach", "Banana" , "Plum", "Lime" };
 
-	[SerializeField]
-	int PlayerNum;
+	// 복숭아 0, 바나나 5... 등 카드 전체
+	public List<string> cards = new List<string>();
 
+
+	// 플레이어 리스트
+	public List<List<string>> UserCards = new List<List<string>>();
+
+
+	public int PlayerNum;
+
+	public List<string> LeftOverCards = new List<string>();
 
 	#region Round Data
-
-
-
-
 
 	int currentRound;
 		public int CurrentRound
@@ -62,45 +63,37 @@ public class StageDataManager : MonoBehaviour
 		currentRound = 1;
 		currentStep = 1;
 
+		for(int i = 0; i<4; i++)
+        {
+			string cardType = cardName[i];
+			for(int a = 0; a<5; a++)
+            {
+				cards.Add(cardType + '1');
+            }
+			for (int b = 0; b<3; b++)
+            {
+				cards.Add(cardType + '2');
+				cards.Add(cardType + '3');
+            }
+			for(int c = 0; c<2; c++)
+            {
+				cards.Add(cardType + '4');
+            }
+			cards.Add(cardType + '5');
+        }
+
+		/*for(int i = 0; i<cards.Count; i++)
+        {
+			Debug.Log(cards[i]);
+        }*/
 
 
 		//라운드 변수 초기화
-		cards.Add(peaches);
-		cards.Add(bananas);
-		cards.Add(plums);
-		cards.Add(limes);
 
-		for (int index = 0; index < 4; index++)
-		{
-			// 1: 5개 삽입
-			for (int cardNum1 = 0; cardNum1 < 5; cardNum1++)
-			{
-				cards[index].Add(1);
-			}
-
-			// 2, 3, 4: 3개 삽입
-			for (int cardNum234 = 0; cardNum234 < 3; cardNum234++)
-			{
-				cards[index].Add(2);
-				cards[index].Add(3);
-				cards[index].Add(4);
-			}
-
-			// 5: 1개 삽입
-			cards[index].Add(5);
-		}
+		// 전체 카드
 
 
-		for (int index = 0; index < 4; index++)
-		{
-			// 1: 5개 삽입
-			Debug.Log(cards[index]);
-			foreach(var num in cards[index])
-            {
-				Debug.Log(num);
-            }
 
-		}
 
 	}
 }
